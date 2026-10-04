@@ -263,6 +263,11 @@
   #vtip { position: fixed; z-index: 50; pointer-events: none; background: #0b0b0b; color: #fff; font: 13px/1.4 var(--sans);
     padding: 8px 10px; border-radius: 8px; max-width: 260px; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
   #vtip b { display: block; }
+  /* FAQ: 2x2 answer cards on desktop, tap-to-open on phones (via .mfold) */
+  .faq details.mfold { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 22px 8px; }
+  .faq .subhead { margin: 16px 0 6px; font-size: 18px; }
+  .faq p { margin: 0 0 10px; font-size: 16px; }
+  @media (max-width: 700px) { .faq { gap: 0; } .faq details.mfold { padding: 0 14px; } .faq details.mfold[open] { padding-bottom: 8px; } }
   /* collapsible example blocks: open on desktop, tap-to-open on phones */
   details.mfold { border: 0; padding: 0; }
   details.mfold > summary { list-style: none; cursor: default; }
@@ -519,12 +524,20 @@
 <section id="faq">
   <div class="wrap">
     <h2>Questions</h2>
-    <details><summary>Will this get me a job?</summary><p>No one can honestly promise that. What I can do is make sure you stop getting filtered out for avoidable reasons, and that the strongest version of you is what a Hiring Manager sees in the first 5 seconds.</p></details>
-    <details><summary>Will you refer me to roles?</summary><p>Referrals are never part of what you pay for. If I know of a role that genuinely fits, I'll mention it, the same way I would for anyone.</p></details>
-    <details><summary>I'm a new grad. Is this for me?</summary><p>Yes. Most of the profiles I see are from new grads. Start with the Audit.</p></details>
-    <details><summary>What do you need from me?</summary><p>Your resume (PDF), your LinkedIn URL, your GitHub URL and the roles you're considering. That's it.</p></details>
-    <details><summary>Is my resume kept private?</summary><p>Yes. I don't share your materials. Before/after examples are only ever published anonymized, and only with your explicit OK.</p></details>
-    <details><summary>Where are you based?</summary><p>Toronto. Everything is done remotely, so it works anywhere in Canada and for most North American markets.</p></details>
+    <div class="grid g2 faq">
+      <details class="mfold" open><summary><h3 class="subhead">Will this get me a job, or a referral?</h3></summary>
+        <p>No one can honestly promise a job. What I can promise is that you stop getting filtered out for avoidable reasons: the wrong title, buried AI work, claims with no proof. The strongest version of you is what a Hiring Manager sees first.</p>
+        <p>Referrals are never part of what you pay for. If I come across a role that genuinely fits, I'll mention it, the same way I would for anyone.</p></details>
+      <details class="mfold" open><summary><h3 class="subhead">Which tier is right for me?</h3></summary>
+        <p><b>New grad or MSc grad:</b> start with the Audit. Most of the profiles I see are yours, and a written, ranked fix list is usually enough.</p>
+        <p><b>Switching in from research or data science, or already interviewing:</b> the Rebuild, because positioning and the mock interview matter most there. <b>Senior or lead:</b> the Lead Rebuild. Not sure? Message me and I'll tell you honestly.</p></details>
+      <details class="mfold" open><summary><h3 class="subhead">What do you need from me, and how does it work?</h3></summary>
+        <p>Your resume (PDF), LinkedIn URL, GitHub URL and the roles you're considering. You book and pay through Cal.com, send those over, and get the written audit within 72 hours. Live sessions are on video.</p>
+        <p>I'm in Toronto and everything is remote, so it works anywhere in Canada and for most North American markets.</p></details>
+      <details class="mfold" open><summary><h3 class="subhead">Is my resume kept private?</h3></summary>
+        <p>Yes. I don't share your materials with recruiters, employers or anyone else. Examples are only ever published anonymized, and only with your explicit OK.</p>
+        <p>You can ask me to delete everything at any time. The details are in the <a href="privacy.html">privacy notice</a> and <a href="terms.html">terms</a>.</p></details>
+    </div>
   </div>
 </section>
 
