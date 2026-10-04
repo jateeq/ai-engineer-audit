@@ -195,7 +195,7 @@
   .closes { margin: -4px 0 12px; font-size: 13px; color: var(--bad); font-variant-numeric: tabular-nums; }
   .flipclock { display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
   .flipclock.sm { justify-content: flex-start; gap: 7px; margin: 2px 0 14px; color: var(--bad); }
-  .flipclock.sm .fc-lbl { font-size: 12.5px; }
+  .flipclock.sm .fc-lbl { font-size: 12.5px; flex-basis: 100%; margin: 0 0 2px; }
   .flipclock.sm .flip { width: 19px; height: 26px; font-size: 17px; line-height: 26px; perspective: 120px; }
   .flipclock.sm .flip > span > b { height: 26px; } .flipclock.sm .flip .b > b, .flipclock.sm .flip .fb > b { top: -13px; }
   .flipclock.sm .fc-digits { gap: 2px; } .flipclock.sm .fc-name { font-size: 8.5px; color: var(--muted); }
@@ -690,7 +690,7 @@
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
   }
   document.querySelectorAll(".flipclock .fc-lbl").forEach(l => { l.dataset.reg = l.textContent; });
-  const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? (l.closest(".flipclock.sm") ? "Ends in" : "Launch price ends in") : l.dataset.reg);
+  const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? "Launch price ends in" : l.dataset.reg);
   relabel(); setInterval(relabel, 1000);
   renderLaunch(); setInterval(() => { if (!launchOn() && document.querySelector(".launch-tag")) renderLaunch(); }, 1000);
   {
