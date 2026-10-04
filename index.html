@@ -245,7 +245,7 @@
     <p class="lede">I've been a hiring manager for Machine Learning Software Engineer (MLSE) and AI/ML Engineer roles for 5+ years. I'll go through your LinkedIn, resume and GitHub the way I do on a real
       application, then help you fix the issues that get you filtered out: unclear targeting, buried AI work, and claims with no proof behind them.</p>
     <div class="ctas">
-      <a class="btn" href="#checklist">Get the 5-second Checklist (FREE)</a>
+      <a class="btn" id="hero-dl" href="checklist.pdf" download="AI-Engineer-5-second-Checklist.pdf" data-goatcounter-click="download-checklist-hero">Get the 5-second Checklist (FREE)</a>
       <a class="btn ghost" href="#offer">See the audit</a>
     </div>
     <div class="cred"><img class="avatar" src="jawad.jpg" alt="Jawad Ateeq" width="40" height="40"><span>By Jawad Ateeq, AI Engineering hiring manager · Toronto · Remote across Canada</span></div>
@@ -292,7 +292,7 @@
     <h2>Quick fixes you can make today</h2>
     <p class="lede">This is a <b>sample</b>: the fast, visible fixes I see most often across LinkedIn, resume and GitHub, with real before/afters.
       They're a small slice of what the full audit covers. Names, employers, schools and numbers are changed, and the problems are exactly what I found.</p>
-    <p style="margin:20px 0 8px"><a class="btn" href="checklist.pdf" target="_blank" rel="noopener" data-goatcounter-click="download-checklist">Download the free checklist (PDF)</a></p>
+    <p style="margin:20px 0 8px"><a class="btn" href="checklist.pdf" download="AI-Engineer-5-second-Checklist.pdf" data-goatcounter-click="download-checklist">Download the free checklist (PDF)</a></p>
 
     <div class="stabs" role="tablist">
       <button class="stab" role="tab" aria-selected="true" data-s="li"><i class="ico li">in</i><span><b>LinkedIn</b><small>Where recruiters find you</small></span></button>
@@ -1015,6 +1015,9 @@ attacks/ → harness/ → scorers/ → report.md</pre>
     }
     car.addEventListener("scroll", () => requestAnimationFrame(sync)); addEventListener("resize", sync); sync();
   })();
+
+  // Hero button downloads the PDF and also brings the checklist section into view
+  document.getElementById("hero-dl").addEventListener("click", () => setTimeout(() => document.getElementById("checklist").scrollIntoView({ behavior: "smooth" }), 150));
 </script>
 <script data-goatcounter="https://jateeq.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
