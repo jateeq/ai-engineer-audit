@@ -392,7 +392,7 @@
     </div>
     <div class="car" id="car" tabindex="0" aria-label="Audit stats, scroll horizontally">
       <div class="vcard">
-        <div class="vhead"><h3>Seniority</h3><span class="note">People who reached out</span></div>
+        <div class="vhead"><h3>Career stage</h3><span class="note">People who reached out</span></div>
         <div id="ch-seniority" class="vplot"></div>
       </div>
       <div class="vcard">
@@ -659,7 +659,7 @@
       paths += `<path data-i="${i}" fill="${SLOTS[i]}" d="M${x1},${y1} A${R},${R} 0 ${large} 1 ${x2},${y2} L${x3},${y3} A${r},${r} 0 ${large} 0 ${x4},${y4} Z"/>`;
       a0 += sweep;
     });
-    el.innerHTML = `<div class="donut-wrap"><svg viewBox="0 0 170 170" role="img" aria-label="Seniority mix">${paths}
+    el.innerHTML = `<div class="donut-wrap"><svg viewBox="0 0 170 170" role="img" aria-label="Career stage mix">${paths}
       </svg>${legend(parts, total)}</div>`;
     el.querySelectorAll("path").forEach(path => { const p = parts[+path.dataset.i];
       VZ.bindHover(path, `<b>${VZ.esc(p.label)}: ${Math.round(p.value / total * 100)}%</b>${VZ.esc(p.note)}`); });
