@@ -268,6 +268,17 @@
   #vtip { position: fixed; z-index: 50; pointer-events: none; background: #0b0b0b; color: #fff; font: 13px/1.4 var(--sans);
     padding: 8px 10px; border-radius: 8px; max-width: 260px; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
   #vtip b { display: block; }
+  .faq details.mfold { position: relative; overflow: hidden; transition: box-shadow .2s, transform .2s; }
+  .faq details.mfold:hover { box-shadow: 0 10px 28px -16px rgba(28,27,25,.35); transform: translateY(-1px); }
+  .faq details.mfold:nth-child(1) { --qc: #2a78d6; } .faq details.mfold:nth-child(2) { --qc: #eb6834; }
+  .faq details.mfold:nth-child(3) { --qc: #1baf7a; } .faq details.mfold:nth-child(4) { --qc: #eda100; }
+  .faq .subhead { display: flex; gap: 12px; align-items: center; }
+  .faq details.mfold, .faq details.mfold[open] { border-top: 4px solid var(--qc) !important; }
+  .faq details.mfold:hover .qi { transform: rotate(-6deg) scale(1.06); }
+  .qi { transition: transform .2s; }
+  .qi { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 14%, white); color: var(--c); }
+  .qi svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .faq p b { color: var(--ink); background: linear-gradient(transparent 62%, color-mix(in srgb, var(--qc) 22%, transparent) 62%); }
   /* FAQ: 2x2 answer cards on desktop, tap-to-open on phones (via .mfold) */
   .faq details.mfold { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 22px 8px; }
   .faq .subhead { margin: 16px 0 6px; font-size: 18px; }
@@ -521,16 +532,16 @@
   <div class="wrap">
     <h2>Questions</h2>
     <div class="grid g2 faq">
-      <details class="mfold" open><summary><h3 class="subhead">Will this get me a job, or a referral?</h3></summary>
+      <details class="mfold" open><summary><h3 class="subhead"><span class="qi" style="--c:#2a78d6" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><rect x="3.5" y="7" width="17" height="12.5" rx="2"/><path d="M3.5 12.5h17"/></svg></span>Will this get me a job, or a referral?</h3></summary>
         <p>No one can honestly promise a job. What I can promise is that you stop getting filtered out for avoidable reasons: the wrong title, buried AI work, claims with no proof. The strongest version of you is what a Hiring Manager sees first.</p>
         <p>Referrals are never part of what you pay for. If I come across a role that genuinely fits, I'll mention it, the same way I would for anyone.</p></details>
-      <details class="mfold" open><summary><h3 class="subhead">Which tier is right for me?</h3></summary>
+      <details class="mfold" open><summary><h3 class="subhead"><span class="qi" style="--c:#eb6834" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3.5 8.5 4.5-8.5 4.5L3.5 8z"/><path d="m3.5 12 8.5 4.5 8.5-4.5"/><path d="m3.5 16 8.5 4.5 8.5-4.5"/></svg></span>Which tier is right for me?</h3></summary>
         <p><b>New grad or MSc grad:</b> start with the Audit. Most of the profiles I see are yours, and a written, ranked fix list is usually enough.</p>
         <p><b>Switching in from research or data science, or already interviewing:</b> the Rebuild, because positioning and the mock interview matter most there. <b>Senior or lead:</b> the Lead Rebuild. Not sure? Message me and I'll tell you honestly.</p></details>
-      <details class="mfold" open><summary><h3 class="subhead">What do you need from me, and how does it work?</h3></summary>
+      <details class="mfold" open><summary><h3 class="subhead"><span class="qi" style="--c:#1baf7a" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16" rx="2"/><path d="M9 4.5V3.5h6v1M8.5 10.5h7M8.5 14h7M8.5 17.5h4"/></svg></span>What do you need from me, and how does it work?</h3></summary>
         <p>Your resume (PDF), LinkedIn URL, GitHub URL and the roles you're considering. You book and pay through Cal.com, send those over, and get the written audit within 72 hours. Live sessions are on video.</p>
         <p>I'm in Toronto and everything is remote, so it works anywhere in Canada and for most North American markets.</p></details>
-      <details class="mfold" open><summary><h3 class="subhead">Is my resume kept private?</h3></summary>
+      <details class="mfold" open><summary><h3 class="subhead"><span class="qi" style="--c:#eda100" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle cx="12" cy="15.5" r="1.3"/></svg></span>Is my resume kept private?</h3></summary>
         <p>Yes. I don't share your materials with recruiters, employers or anyone else. Examples are only ever published anonymized, and only with your explicit OK.</p>
         <p>You can ask me to delete everything at any time. The details are in the <a href="privacy.html">privacy notice</a> and <a href="terms.html">terms</a>.</p></details>
     </div>
