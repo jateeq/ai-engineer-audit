@@ -318,6 +318,28 @@
   .price s { font-size: .5em; color: var(--muted); font-weight: 600; margin-left: 6px; text-decoration-thickness: 2px; }
   .launch-tag { display: block; width: max-content; max-width: 100%; white-space: nowrap; margin-top: 6px; font: 700 12px/1.3 var(--sans); color: #b42318; background: #fef3f2; padding: 4px 8px; border-radius: 6px; }
   .spotsbar .launch-only { margin-bottom: 4px; }
+  /* Tier cards: one shared row grid (subgrid), so the same part of every card sits on the same line */
+  .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 20px; align-items: stretch; }
+  .tiers .tier { display: grid; grid-row: span 10; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .tiers .tier > * { margin: 0; min-width: 0; }
+  .tiers .t-head h3 { margin: 2px 0 0; }
+  .tiers .price { margin: 10px 0 0; }
+  .tiers .t-tag { margin-top: 6px; min-height: 0; }
+  .tiers .t-meta { margin-top: 6px; }
+  .tiers .roi-pt { display: inline-block; margin-top: 12px; }
+  .tiers .t-inc { margin: 18px 0 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .incl { list-style: none; padding: 0 !important; margin: 0 !important; }
+  .incl li { position: relative; padding-left: 28px; margin: 0 0 9px; white-space: nowrap; font-size: 15px; line-height: 1.4; }
+  .incl li::before { position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font: 700 12px/20px var(--sans); text-align: center; }
+  .incl li.on::before { content: "✓"; background: var(--good-bg); color: var(--good); }
+  .incl li.off { color: #b7b2a8; }
+  .incl li.off::before { content: "–"; background: #f2f0ec; color: #b7b2a8; }
+  .t-extra { margin: 10px 0 0; font-size: 13.5px; color: var(--muted); }
+  .tiers .spots-tag { margin: 0 0 10px; }
+  .tiers .flipclock.sm { margin: 0 0 14px; }
+  .tiers .btn.book { align-self: end; }
+  .tiers .tier > p.note:last-child { margin-top: 10px; min-height: 0; }
+  @media (max-width: 820px) { .tiers { grid-template-columns: 1fr; } .tiers .tier { margin-bottom: 18px; } }
   /* FAQ: 2x2 answer cards on desktop, tap-to-open on phones (via .mfold) */
   .faq details.mfold { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 22px 8px; }
   .faq .subhead { margin: 16px 0 6px; font-size: 18px; }
@@ -516,48 +538,41 @@
   <div class="wrap">
     <div class="kicker">The offer</div>
     <h2>Pricing tiers</h2>
-    <p class="lede">Every tier is live, with me personally. <b>You make the changes</b>; I give the feedback.</p>
-    <div class="grid g3" style="margin-top:28px">
+    <p class="lede">Every tier is live, with me personally, and each one includes everything in the tier before it. <b>You make the changes</b>; I give the feedback.</p>
+    <div class="tiers" style="margin-top:28px">
       <div class="card tier">
-        <h3>Live Audit</h3><div class="price" data-price="audit">$79</div><div class="note">CAD · 20-min video call</div>
-        <div class="roi-pt">≈ 1 hour of pay at a $140k role</div>
-        <ul>
-          <li>Live review of your LinkedIn, resume and GitHub</li>
-          <li>Your top fixes, ranked, sent in writing after the call</li>
-          <li>The one target role your experience best supports</li>
-          <li>Follow-up questions by message for 7 days</li>
-        </ul>
-        <p class="spots-tag open">No spot limit</p>
-        <div class="clock-space" aria-hidden="true"><div class="flipclock sm"><span class="fc-lbl">Closes in</span></div></div>
+        <div class="t-head"><div class="badge">&nbsp;</div><h3>Live Audit</h3></div>
+        <div class="price" data-price="audit">$79</div>
+        <div class="t-tag" data-tag="audit"></div>
+        <div class="note t-meta">CAD · 1 call · 20 min</div>
+        <div><span class="roi-pt">≈ 1 hour of pay at a $140k role</span></div>
+        <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="off">Behavioral mock · 45 min</li><li class="off">Coding mock · 45 min</li><li class="off">System design mock · 45 min</li></ul><p class="t-extra">Top fixes in writing · 7 days of follow-up questions</p></div>
+        <div><p class="spots-tag open">No spot limit</p></div>
+        <div></div>
         <a class="btn book" data-tier="audit" data-goatcounter-click="book-live-audit" href="#book">Book the Live Audit</a>
         <p class="note">Best if you're not getting callbacks yet.</p>
       </div>
       <div class="card tier featured">
-        <div class="badge">Recommended</div>
-        <h3>Interview Ready</h3><div class="price" data-price="ready">$199</div><div class="note">CAD · Live Audit + 45-min behavioral mock</div>
-        <div class="roi-pt">≈ 3 hours of pay at a $140k role</div>
-        <ul>
-          <li><b>Everything in the Live Audit</b></li>
-          <li>A 45-min behavioral mock interview with a Hiring Manager</li>
-          <li>Written feedback: what landed, what to tighten</li>
-          <li>Follow-up questions by message for 30 days</li>
-        </ul>
-        <p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-n">6</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p>
-        <div class="flipclock sm" role="timer" aria-label="Time until the offer closes"><span class="fc-lbl">Closes in</span></div>
+        <div class="t-head"><div class="badge">Recommended</div><h3>Interview Ready</h3></div>
+        <div class="price" data-price="ready">$199</div>
+        <div class="t-tag" data-tag="ready"></div>
+        <div class="note t-meta">CAD · 2 calls · 65 min</div>
+        <div><span class="roi-pt">≈ 3 hours of pay at a $140k role</span></div>
+        <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="on">Behavioral mock · 45 min</li><li class="off">Coding mock · 45 min</li><li class="off">System design mock · 45 min</li></ul><p class="t-extra">Written feedback on each · 30 days of follow-up questions</p></div>
+        <div><p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-n">6</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p></div>
+        <div><div class="flipclock sm" role="timer" aria-label="Time until the offer closes"><span class="fc-lbl">Closes in</span></div></div>
         <a class="btn book" data-tier="ready" data-goatcounter-click="book-interview-ready" href="#book">Book Interview Ready</a>
         <p class="note">Best if you're getting interviews but not offers.</p>
       </div>
       <div class="card tier">
-        <h3>Full Interview Prep</h3><div class="price" data-price="full">$599</div><div class="note">CAD · Live Audit + 3 mock interviews</div>
-        <div class="roi-pt">≈ 1 day of pay at a $140k role</div>
-        <ul>
-          <li><b>Everything in Interview Ready</b></li>
-          <li>A 45-min coding mock interview</li>
-          <li>A 45-min AI/ML system design mock interview</li>
-          <li>Written feedback after each, and a prep plan for your loop</li>
-        </ul>
-        <p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-l">2</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p>
-        <div class="clock-space" aria-hidden="true"><div class="flipclock sm"><span class="fc-lbl">Closes in</span></div></div>
+        <div class="t-head"><div class="badge">&nbsp;</div><h3>Full Interview Prep</h3></div>
+        <div class="price" data-price="full">$599</div>
+        <div class="t-tag" data-tag="full"></div>
+        <div class="note t-meta">CAD · 4 calls · 2 h 35 min</div>
+        <div><span class="roi-pt">≈ 1 day of pay at a $140k role</span></div>
+        <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="on">Behavioral mock · 45 min</li><li class="on">Coding mock · 45 min</li><li class="on">System design mock · 45 min</li></ul><p class="t-extra">Written feedback on each, a prep plan for your loop · 30 days of follow-up questions</p></div>
+        <div><p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-l">2</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p></div>
+        <div></div>
         <a class="btn book" data-tier="full" data-goatcounter-click="book-full-prep" href="#book">Book Full Interview Prep</a>
         <p class="note">Best for top technical interview loops.</p>
       </div>
@@ -689,10 +704,12 @@
     const on = launchOn();
     document.querySelectorAll("[data-price]").forEach(el => {
       const t = el.dataset.price, regular = el.dataset.regular || (el.dataset.regular = el.textContent);
-      el.innerHTML = on && LAUNCH.price[t] ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">15% off · ${regular} after Oct 18</span>` : regular;
+      const disc = on && LAUNCH.price[t];
+      el.innerHTML = disc ? `${LAUNCH.price[t]} <s>${regular}</s>` : regular;
+      const tag = document.querySelector(`[data-tag="${t}"]`);
+      if (tag) tag.innerHTML = disc ? `<span class="launch-tag">15% off · ${regular} after Oct 18</span>` : "";
     });
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
-    document.querySelectorAll(".launch-keep").forEach(el => el.style.visibility = on ? "" : "hidden");  // keeps its space so buttons stay aligned
   }
   document.querySelectorAll(".flipclock .fc-lbl").forEach(l => { l.dataset.reg = l.textContent; });
   const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? "Discount ends in" : l.dataset.reg);
