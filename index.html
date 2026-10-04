@@ -186,6 +186,9 @@
 
   /* tiers */
   .tier { display: flex; flex-direction: column; }
+  .spots-tag.open { background: #ecfdf3; color: #067647; }
+  .spots-tag { white-space: nowrap; height: 34px; box-sizing: border-box; }
+  .tier > p.note:last-child { min-height: 3.2em; }
   .tier .price { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 2px; }
   .tier ul { padding-left: 18px; margin: 12px 0 20px; flex: 1; }
   .tier li { margin: 6px 0; font-size: 15px; }
@@ -524,7 +527,8 @@
           <li>One target role, and a top-3 project plan</li>
           <li><b>1 review</b> of your revised version</li>
         </ul>
-        <div class="launch-only" hidden><div class="flipclock sm" role="timer" aria-label="Time until the discount ends"><span class="fc-lbl">Closes in</span></div></div>
+        <p class="spots-tag open">No spot limit</p>
+        <div class="launch-keep"><div class="flipclock sm" role="timer" aria-label="Time until the discount ends"><span class="fc-lbl">Closes in</span></div></div>
         <a class="btn book" data-tier="audit" data-goatcounter-click="book-audit" href="#book">Book the Audit</a>
         <p class="note">Best for new grads and MSc grads.</p>
       </div>
@@ -689,6 +693,7 @@
       el.innerHTML = on ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">15% off · ${regular} after Oct 11</span>` : regular;
     });
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
+    document.querySelectorAll(".launch-keep").forEach(el => el.style.visibility = on ? "" : "hidden");  // keeps its space so buttons stay aligned
   }
   document.querySelectorAll(".flipclock .fc-lbl").forEach(l => { l.dataset.reg = l.textContent; });
   const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? "Discount ends in" : l.dataset.reg);
