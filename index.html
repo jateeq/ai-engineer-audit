@@ -386,7 +386,7 @@
 </svg>
 
 <div class="spotsbar"><div class="wrap">
-  <div class="launch-only" hidden><b>Interview Ready is 15% off until Sunday, Oct 11 at 11:59 PM ET.</b> After that, the regular price applies.</div>
+  <div class="launch-only" hidden><b>Interview Ready is 15% off until Sunday, Oct 18 at 11:59 PM ET.</b> After that, the regular price applies.</div>
   <div><span class="pulse"></span><b>Only <span class="spots-n">6</span> Interview Ready and <span class="spots-l">2</span> Full Interview Prep spots left for <span class="spots-m">this month</span></b> · <a href="#offer">Claim yours</a></div>
   <div class="flipclock" id="flipclock" role="timer" aria-label="Time until spots close"><span class="fc-lbl">Closes in</span></div>
 </div></div>
@@ -632,8 +632,8 @@
   // ---- Launch pricing: one real deadline. Before it, Book buttons go to the launch-priced Cal.com events;
   // after it, everything reverts by itself. Turn the launch events off in Cal.com at the deadline too.
   const LAUNCH = {
-    ends: new Date("2026-10-11T23:59:59-04:00"),  // Sunday Oct 11, 11:59 PM Toronto
-    label: "Sunday, Oct 11 at 11:59 PM ET",
+    ends: new Date("2026-10-18T23:59:59-04:00"),  // Sunday Oct 18, 11:59 PM Toronto
+    label: "Sunday, Oct 18 at 11:59 PM ET",
     urls: { ready: "https://cal.com/jawad-ateeq-hgbvwe/interview-ready-15" },  // only Interview Ready is discounted
     price: { ready: "$169" },
   };
@@ -689,7 +689,7 @@
     const on = launchOn();
     document.querySelectorAll("[data-price]").forEach(el => {
       const t = el.dataset.price, regular = el.dataset.regular || (el.dataset.regular = el.textContent);
-      el.innerHTML = on && LAUNCH.price[t] ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">15% off · ${regular} after Oct 11</span>` : regular;
+      el.innerHTML = on && LAUNCH.price[t] ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">15% off · ${regular} after Oct 18</span>` : regular;
     });
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
     document.querySelectorAll(".launch-keep").forEach(el => el.style.visibility = on ? "" : "hidden");  // keeps its space so buttons stay aligned
