@@ -25,6 +25,8 @@
   .lede { font-size: 20px; color: var(--muted); max-width: 720px; }
   .kicker { font: 600 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .btn { display: inline-block; padding: 14px 22px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; }
+  .li-btn { display: inline-flex; align-items: center; gap: 8px; }
+  .li-btn .ico { width: 22px; height: 22px; font-size: 14px; border-radius: 4px; }
   .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
   .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
   .note { font-size: 14px; color: var(--muted); }
@@ -875,7 +877,7 @@ attacks/ → harness/ → scorers/ → report.md</pre>
     <p class="lede" style="margin:0 auto">Pick a tier, or send me a message on LinkedIn with "5-second test" and your resume.</p>
     <div class="ctas" style="justify-content:center">
       <a class="btn" href="#offer">See the tiers</a>
-      <a class="btn ghost" id="li" href="#book">Message me on LinkedIn</a>
+      <a class="btn ghost li-btn" id="li" href="#book">Message me on <i class="ico li" aria-hidden="true">in</i> LinkedIn</a>
     </div>
   </div>
 </section>
