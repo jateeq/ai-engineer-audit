@@ -175,6 +175,7 @@
   .spots-tag { display: inline-flex; align-items: center; gap: 2px; margin: 0 0 12px; padding: 6px 12px; border-radius: 99px; background: #b42318; color: #fff;
     font-size: 14px; font-weight: 700; align-self: flex-start; }
   .spots-tag .pulse { background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,.7); }
+  .roi-pt { margin-top: 10px; padding: 6px 10px; border-radius: 8px; background: var(--good-bg); color: var(--good); font-weight: 700; font-size: 14px; align-self: flex-start; }
   .badge { font: 700 12px var(--sans); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
 
   details { border-bottom: 1px solid var(--line); padding: 14px 0; }
@@ -740,31 +741,17 @@ attacks/ → harness/ → scorers/ → report.md</pre>
   </div>
 </section>
 
-<!-- ===== ROI ===== -->
-<section id="roi">
-  <div class="wrap">
-    <div class="kicker">The math</div>
-    <h2>It pays for itself</h2>
-    <p class="lede">AI Engineer salaries in Toronto start around <b>$140k</b>. If better positioning lands you a role that pays <b>$20k more</b>,
-      here's what the audit costs against that first-year difference.</p>
-    <div class="grid g3" style="margin-top:24px">
-      <div class="card"><div class="stat">1.2%</div><h3>Audit</h3><p class="note">$249 of a $20k bump</p></div>
-      <div class="card"><div class="stat">3.7%</div><h3>Rebuild</h3><p class="note">$749 of a $20k bump</p></div>
-      <div class="card"><div class="stat">6.3%</div><h3>Lead Rebuild</h3><p class="note">$1,250 of a $20k bump</p></div>
-    </div>
-    <p class="note" style="margin-top:14px">An illustration, not a promise. No one can guarantee you a job or a raise.</p>
-  </div>
-</section>
-
 <!-- ===== OFFER ===== -->
 <section id="offer">
   <div class="wrap">
     <div class="kicker">The offer</div>
-    <h2>Pick your depth</h2>
+    <h2>Pricing tiers</h2>
     <p class="lede">Every tier is feedback from me personally: written for the Audit, live for the Rebuilds. <b>You make the changes</b>, and I review them. I take a limited number of clients each month because I also have a full-time job.</p>
     <div class="grid g3" style="margin-top:28px">
-      <div class="card tier">
+      <div class="card tier featured">
+        <div class="badge">Recommended</div>
         <h3>Audit</h3><div class="price">$249</div><div class="note">CAD · async · 72-hour turnaround</div>
+        <div class="roi-pt">≈ 1.2% of a $20k raise</div>
         <ul>
           <li>A written hiring-manager audit of your LinkedIn, resume and GitHub</li>
           <li>Every issue ranked by impact, with what to change</li>
@@ -777,9 +764,9 @@ attacks/ → harness/ → scorers/ → report.md</pre>
         <a class="btn book" data-tier="audit" href="#book">Book the Audit</a>
         <p class="note">Best for new grads and MSc grads.</p>
       </div>
-      <div class="card tier featured">
-        <div class="badge">Recommended</div>
+      <div class="card tier">
         <h3>Rebuild</h3><div class="price">$749</div><div class="note">CAD · live feedback · about 2 weeks</div>
+        <div class="roi-pt">≈ 3.7% of a $20k raise</div>
         <ul>
           <li>2 × 45-min live sessions: positioning first, then a line-by-line walkthrough of your LinkedIn, resume and GitHub</li>
           <li>One target role, chosen with reasoning</li>
@@ -794,6 +781,7 @@ attacks/ → harness/ → scorers/ → report.md</pre>
       </div>
       <div class="card tier">
         <h3>Lead Rebuild</h3><div class="price">$1,250</div><div class="note">CAD · live feedback · senior and lead roles</div>
+        <div class="roi-pt">≈ 6.3% of a $20k raise</div>
         <ul>
           <li><b>Everything in the Rebuild</b></li>
           <li>Coaching on your leadership story: how to show you lead engineers and work with PMs</li>
@@ -805,6 +793,8 @@ attacks/ → harness/ → scorers/ → report.md</pre>
         <p class="note">Best for senior DS → AI Engineering lead and senior MLEs.</p>
       </div>
     </div>
+
+    <p class="note" style="margin-top:14px">AI Engineer salaries in Toronto start around $140k. The percentages compare each price to a $20k higher offer in year one. An illustration, not a promise.</p>
 
     <div class="grid g2" style="margin-top:28px">
       <div class="card">
