@@ -188,6 +188,8 @@
   .tier { display: flex; flex-direction: column; }
   .spots-tag.open { background: #ecfdf3; color: #067647; }
   .clock-space { visibility: hidden; }
+  a.roi-pt { text-decoration: none; } a.roi-pt sup { font-size: .7em; margin-left: 1px; }
+  .pay-note { scroll-margin-top: 120px; } .pay-note:target { background: #fff8db; border-radius: 6px; padding: 4px 8px; }
   .spots-tag { white-space: nowrap; height: 34px; box-sizing: border-box; }
   .tier > p.note:last-child { min-height: 3.2em; }
   .tier .price { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 2px; }
@@ -560,7 +562,7 @@
         <div class="price" data-price="audit">$79</div>
         <div class="t-clock"></div>
         <div class="note t-meta">CAD · 1 call · 20 min</div>
-        <div><span class="roi-pt">≈ 1 hour of pay at a $140k role</span></div>
+        <div><a class="roi-pt" href="#pay-note">≈ 1 hour of pay at a $140k role<sup>*</sup></a></div>
         <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="off">Behavioral mock · 45 min</li><li class="off">Coding mock · 45 min</li><li class="off">System design mock · 45 min</li></ul><p class="t-extra">Top fixes in writing · 7 days of follow-up questions</p></div>
         <div><p class="spots-tag open">No spot limit</p></div>
         <a class="btn book" data-tier="audit" data-goatcounter-click="book-live-audit" href="#book">Book the Live Audit</a>
@@ -571,7 +573,7 @@
         <div class="price" data-price="ready">$199</div>
         <div class="t-clock"><div class="flipclock sm" role="timer" aria-label="Time until the offer closes"><span class="fc-lbl">Closes in</span></div></div>
         <div class="note t-meta">CAD · 2 calls · 65 min</div>
-        <div><span class="roi-pt">≈ 3 hours of pay at a $140k role</span></div>
+        <div><a class="roi-pt" href="#pay-note">≈ 3 hours of pay at a $140k role<sup>*</sup></a></div>
         <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="on plus">Behavioral mock · 45 min</li><li class="off">Coding mock · 45 min</li><li class="off">System design mock · 45 min</li></ul><p class="t-extra">Written feedback on each · 30 days of follow-up questions</p></div>
         <div><p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-n">9</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p></div>
         <a class="btn book" data-tier="ready" data-goatcounter-click="book-interview-ready" href="#book">Book Interview Ready</a>
@@ -582,7 +584,7 @@
         <div class="price" data-price="full">$599</div>
         <div class="t-clock"></div>
         <div class="note t-meta">CAD · 4 calls · 2 h 35 min</div>
-        <div><span class="roi-pt">≈ 1 day of pay at a $140k role</span></div>
+        <div><a class="roi-pt" href="#pay-note">≈ 1 day of pay at a $140k role<sup>*</sup></a></div>
         <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="on plus">Behavioral mock · 45 min</li><li class="on plus">Coding mock · 45 min</li><li class="on plus">System design mock · 45 min</li></ul><p class="t-extra">Written feedback on each, a prep plan for your loop · 30 days of follow-up questions</p></div>
         <div><p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-l">2</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p></div>
         <a class="btn book" data-tier="full" data-goatcounter-click="book-full-prep" href="#book">Book Full Interview Prep</a>
@@ -590,7 +592,7 @@
       </div>
     </div>
 
-    <p class="note" style="margin-top:14px">AI Engineer salaries in Toronto start around $140k, about $70 an hour. An illustration, not a promise.</p>
+    <p class="note pay-note" id="pay-note" style="margin-top:14px">* AI Engineer salaries in Toronto start around $140k a year, about $70 an hour over a 2,000-hour year. Each price is shown as hours of that pay. An illustration, not a promise.</p>
 
     <div class="grid g2" style="margin-top:24px">
       <div class="card"><h3>Guarantee</h3>
