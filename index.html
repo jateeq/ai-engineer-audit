@@ -73,6 +73,12 @@
   .checks b { display: block; }
   .checks span { color: var(--muted); font-size: 15px; }
   .subhead { margin: 40px 0 6px; }
+  .why-text p { font-size: 18px; color: var(--ink); margin: 0 0 14px; max-width: 560px; }
+  .why-sig { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 15px; margin-top: 6px; }
+  .why-list { margin: 10px 0 0; padding-left: 0; list-style: none; }
+  .why-list li { padding: 8px 0 8px 28px; border-bottom: 1px dashed var(--line); position: relative; }
+  .why-list li:last-child { border-bottom: 0; }
+  .why-list li::before { content: "✓"; position: absolute; left: 4px; color: var(--good); font-weight: 700; }
 
   /* sub tabs */
   .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 20px; }
@@ -284,6 +290,35 @@
   </div>
 </section>
 <div id="vtip" role="tooltip" hidden></div>
+
+<!-- ===== WHY ===== -->
+<section id="why">
+  <div class="wrap why-wrap">
+    <div class="kicker">Why I'm doing this</div>
+    <h2>Your reputation walks in the door before you do</h2>
+    <div class="grid g2" style="margin-top:18px;align-items:start">
+      <div class="why-text">
+        <p>I kept seeing the same patterns, over and over. The recruiters I work with were passing on strong candidates, not because the work wasn't there,
+          but because the presentation didn't show it.</p>
+        <p>With competition this high, the people who present themselves well are the ones landing interviews. And the ones who understand the
+          industry's language interview well, and with confidence.</p>
+        <p>It's never been easier to produce software, so the bar has moved. Hiring managers have very little signal to go on, so they judge on what they
+          can see. My job is to make sure what they see is the real you.</p>
+        <div class="why-sig"><img class="avatar" src="jawad.jpg" alt="" width="40" height="40"><span>Jawad</span></div>
+      </div>
+      <div class="card">
+        <h3>What a hiring manager wants to see in an AI Engineer today</h3>
+        <ul class="why-list">
+          <li>Energetic, self-driven and curious</li>
+          <li>Can hit the ground running without much training</li>
+          <li>Uses AI to <b>ship</b> real software, not just write demos</li>
+          <li>Stays on top of the state of the art in AI development</li>
+          <li>Has an opinion on where AI is going, and wants to help build it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== CHECKLIST BY SURFACE ===== -->
 <section id="checklist">
