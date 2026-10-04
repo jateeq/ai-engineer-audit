@@ -287,6 +287,14 @@
     background: var(--ink); color: #fff; border-radius: 14px; padding: 10px 10px 10px 16px; box-shadow: 0 8px 24px rgba(0,0,0,.25); font-size: 14px; }
   .mcta .btn { padding: 10px 14px; font-size: 14px; }
   @media (max-width: 700px) { .mcta.show { display: flex; } body { padding-bottom: 72px; } }
+  .tgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+  @media (max-width: 900px) { .tgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 620px) { .tgrid { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 86%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; } .tcard { scroll-snap-align: start; } }
+  .tcard { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
+  .tcard blockquote { margin: 0; font-size: 16px; line-height: 1.5; }
+  .tcard figcaption { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--muted); line-height: 1.35; }
+  .tcard figcaption b { color: var(--ink); }
+  .tav { width: 36px; height: 36px; flex: none; } .tav svg { width: 100%; height: 100%; }
 </style>
 </head>
 <body>
@@ -843,6 +851,29 @@ attacks/ → harness/ → scorers/ → report.md</pre>
     <div class="card" style="margin-top:36px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between">
       <div><h3 style="margin:0">Want me to run these checks on your profile?</h3><p class="note" style="margin:4px 0 0">The audit covers all three surfaces, plus what a checklist can't catch: positioning, story and specialty.</p></div>
       <a class="btn" href="#offer">See the audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KIND WORDS ===== -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="kicker">Kind words</div>
+    <h2>What people said after a free review</h2>
+    <p class="lede">Real messages from people I've given feedback to on LinkedIn. Names and details are left out to keep them anonymous.</p>
+    <div class="tgrid">
+      <figure class="tcard"><blockquote>“Thank you so much Jawad for taking the time and talking with me today! It was very helpful and it gave me lots of clarity.”</blockquote>
+        <figcaption><span class="tav"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e4e0d8"/><circle cx="20" cy="16" r="7" fill="#b9b4aa"/><path d="M7 34c2.5-6.5 7.5-9.5 13-9.5s10.5 3 13 9.5" fill="#b9b4aa"/></svg></span><span><b>PhD researcher</b><br>Interpretability &amp; LLMs</span></figcaption></figure>
+      <figure class="tcard"><blockquote>“Thank you so much for the thorough feedback and going so in depth. … A lot of food for thought.”</blockquote>
+        <figcaption><span class="tav"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e4e0d8"/><circle cx="20" cy="16" r="7" fill="#b9b4aa"/><path d="M7 34c2.5-6.5 7.5-9.5 13-9.5s10.5 3 13 9.5" fill="#b9b4aa"/></svg></span><span><b>Recent CS grad</b><br>Backend &amp; ML infra</span></figcaption></figure>
+      <figure class="tcard"><blockquote>“Thanks so much Jawad, this is really helpful! I&#x27;ll change and rewrite my descriptions for ML engineering, and add my GitHub projects.”</blockquote>
+        <figcaption><span class="tav"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e4e0d8"/><circle cx="20" cy="16" r="7" fill="#b9b4aa"/><path d="M7 34c2.5-6.5 7.5-9.5 13-9.5s10.5 3 13 9.5" fill="#b9b4aa"/></svg></span><span><b>MSc grad</b><br>Machine learning engineer</span></figcaption></figure>
+      <figure class="tcard"><blockquote>“Thank you so much for your advice! I really appreciate it. I&#x27;ll update my resume based on your suggestions.”</blockquote>
+        <figcaption><span class="tav"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e4e0d8"/><circle cx="20" cy="16" r="7" fill="#b9b4aa"/><path d="M7 34c2.5-6.5 7.5-9.5 13-9.5s10.5 3 13 9.5" fill="#b9b4aa"/></svg></span><span><b>Master&#x27;s in AI grad</b><br>AI/ML engineer</span></figcaption></figure>
+      <figure class="tcard"><blockquote>“Thank you so much! This is really helpful. … I can definitely make that signal more obvious.”</blockquote>
+        <figcaption><span class="tav"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e4e0d8"/><circle cx="20" cy="16" r="7" fill="#b9b4aa"/><path d="M7 34c2.5-6.5 7.5-9.5 13-9.5s10.5 3 13 9.5" fill="#b9b4aa"/></svg></span><span><b>Recent CS grad</b><br>LLM research &amp; cloud</span></figcaption></figure>
+      <figure class="tcard"><blockquote>“I made that a bit more evident in this update. … Let&#x27;s keep in touch. Appreciate the help.”</blockquote>
+        <figcaption><span class="tav"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#e4e0d8"/><circle cx="20" cy="16" r="7" fill="#b9b4aa"/><path d="M7 34c2.5-6.5 7.5-9.5 13-9.5s10.5 3 13 9.5" fill="#b9b4aa"/></svg></span><span><b>Senior data scientist</b><br>8 years, moving into AI Engineering</span></figcaption></figure>
     </div>
   </div>
 </section>
