@@ -381,7 +381,7 @@
 </svg>
 
 <div class="spotsbar"><div class="wrap">
-  <div class="launch-only" hidden><b>Launch prices end Sunday, Oct 11 at 11:59 PM ET.</b> After that, regular prices apply.</div>
+  <div class="launch-only" hidden><b>15% off every tier until Sunday, Oct 11 at 11:59 PM ET.</b> After that, regular prices apply.</div>
   <div><span class="pulse"></span><b>Only <span class="spots-n">4</span> Rebuild and <span class="spots-l">2</span> Lead Rebuild spots left for <span class="spots-m">this month</span></b> · <a href="#offer">Claim yours</a></div>
   <div class="flipclock" id="flipclock" role="timer" aria-label="Time until spots close"><span class="fc-lbl">Closes in</span></div>
 </div></div>
@@ -523,7 +523,7 @@
           <li>One target role, and a top-3 project plan</li>
           <li><b>1 review</b> of your revised version</li>
         </ul>
-        <div class="launch-only" hidden><div class="flipclock sm" role="timer" aria-label="Time until launch price ends"><span class="fc-lbl">Closes in</span></div></div>
+        <div class="launch-only" hidden><div class="flipclock sm" role="timer" aria-label="Time until the discount ends"><span class="fc-lbl">Closes in</span></div></div>
         <a class="btn book" data-tier="audit" data-goatcounter-click="book-audit" href="#book">Book the Audit</a>
         <p class="note">Best for new grads and MSc grads.</p>
       </div>
@@ -685,12 +685,12 @@
     const on = launchOn();
     document.querySelectorAll("[data-price]").forEach(el => {
       const t = el.dataset.price, regular = el.dataset.regular || (el.dataset.regular = el.textContent);
-      el.innerHTML = on ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">Launch price · ${regular} after Oct 11</span>` : regular;
+      el.innerHTML = on ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">15% off · ${regular} after Oct 11</span>` : regular;
     });
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
   }
   document.querySelectorAll(".flipclock .fc-lbl").forEach(l => { l.dataset.reg = l.textContent; });
-  const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? "Launch price ends in" : l.dataset.reg);
+  const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? "Discount ends in" : l.dataset.reg);
   relabel(); setInterval(relabel, 1000);
   renderLaunch(); setInterval(() => { if (!launchOn() && document.querySelector(".launch-tag")) renderLaunch(); }, 1000);
   {
