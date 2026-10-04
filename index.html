@@ -381,7 +381,7 @@
 </svg>
 
 <div class="spotsbar"><div class="wrap">
-  <div class="launch-only" hidden><b>Launch prices end tonight at 11:59 PM ET.</b> After that, regular prices apply.</div>
+  <div class="launch-only" hidden><b>Launch prices end Sunday, Oct 11 at 11:59 PM ET.</b> After that, regular prices apply.</div>
   <div><span class="pulse"></span><b>Only <span class="spots-n">4</span> Rebuild and <span class="spots-l">2</span> Lead Rebuild spots left for <span class="spots-m">this month</span></b> · <a href="#offer">Claim yours</a></div>
   <div class="flipclock" id="flipclock" role="timer" aria-label="Time until spots close"><span class="fc-lbl">Closes in</span></div>
 </div></div>
@@ -626,8 +626,8 @@
   // ---- Launch pricing: one real deadline. Before it, Book buttons go to the launch-priced Cal.com events;
   // after it, everything reverts by itself. Turn the launch events off in Cal.com at the deadline too.
   const LAUNCH = {
-    ends: new Date("2026-10-04T23:59:59-04:00"),  // Sunday Oct 4, 11:59 PM Toronto
-    label: "tonight at 11:59 PM ET",
+    ends: new Date("2026-10-11T23:59:59-04:00"),  // Sunday Oct 11, 11:59 PM Toronto
+    label: "Sunday, Oct 11 at 11:59 PM ET",
     urls: { audit: "https://cal.com/jawad-ateeq-hgbvwe/audit-ai-engineer-profile-launch",
             rebuild: "https://cal.com/jawad-ateeq-hgbvwe/rebuild-call-launch",
             lead: "https://cal.com/jawad-ateeq-hgbvwe/lead-rebuild-launch" },
@@ -685,7 +685,7 @@
     const on = launchOn();
     document.querySelectorAll("[data-price]").forEach(el => {
       const t = el.dataset.price, regular = el.dataset.regular || (el.dataset.regular = el.textContent);
-      el.innerHTML = on ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">Launch price · ${regular} after tonight</span>` : regular;
+      el.innerHTML = on ? `${LAUNCH.price[t]} <s>${regular}</s><span class="launch-tag">Launch price · ${regular} after Oct 11</span>` : regular;
     });
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
   }
