@@ -180,7 +180,9 @@
   .tier.featured { border: 2px solid var(--accent); }
   .spots-tag { display: inline-flex; align-items: center; gap: 2px; margin: 0 0 12px; padding: 6px 12px; border-radius: 99px; background: #b42318; color: #fff;
     font-size: 14px; font-weight: 700; align-self: flex-start; }
-  .spots-tag .pulse { background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,.7); }
+  .closes { margin: -4px 0 12px; font-size: 13px; color: var(--bad); font-variant-numeric: tabular-nums; }
+  .spotsbar .countdown { font-variant-numeric: tabular-nums; }
+  .spots-tag .pulse { background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,.7); animation: pulse 2s infinite; }
   .roi-pt { margin-top: 10px; padding: 6px 10px; border-radius: 8px; background: var(--good-bg); color: var(--good); font-weight: 700; font-size: 14px; align-self: flex-start; }
   .badge { font: 700 12px var(--sans); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
 
@@ -241,7 +243,7 @@
   <symbol id="i-cv" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M6 2.8h8.5L19 7.3V21.2H6z"/><path fill="none" stroke="currentColor" stroke-width="1.6" d="M14.5 2.8v4.5H19M8.8 11h7.4M8.8 14h7.4M8.8 17h4.6"/></symbol>
 </svg>
 
-<div class="spotsbar"><div class="wrap"><span class="pulse"></span><b>Only <span class="spots-n">4</span> Rebuild and <span class="spots-l">2</span> Lead Rebuild spots left for <span class="spots-m">this month</span></b> · <a href="#offer">Claim yours</a></div></div>
+<div class="spotsbar"><div class="wrap"><span class="pulse"></span><b>Only <span class="spots-n">4</span> Rebuild and <span class="spots-l">2</span> Lead Rebuild spots left for <span class="spots-m">this month</span></b> · closes in <b class="countdown">--</b> · <a href="#offer">Claim yours</a></div></div>
 
 <header class="hero">
   <div class="wrap">
@@ -811,6 +813,7 @@ attacks/ → harness/ → scorers/ → report.md</pre>
           <li>Bonus: the evals project guide and recruiter DM scripts</li>
         </ul>
         <p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-n">4</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p>
+        <p class="closes">Closes in <b class="countdown">--</b></p>
         <a class="btn book" data-tier="rebuild" data-goatcounter-click="book-rebuild" href="#book">Book the Rebuild</a>
         <p class="note">Best for PhD/research → industry and DS → AI Engineering.</p>
       </div>
@@ -824,6 +827,7 @@ attacks/ → harness/ → scorers/ → report.md</pre>
           <li>2 revision reviews within 60 days, to cover your interview loop</li>
         </ul>
         <p class="spots-tag"><span class="pulse"></span>Only&nbsp;<b class="spots-l">2</b>&nbsp;spots left for&nbsp;<span class="spots-m">this month</span></p>
+        <p class="closes">Closes in <b class="countdown">--</b></p>
         <a class="btn book" data-tier="lead" data-goatcounter-click="book-lead-rebuild" href="#book">Book the Lead Rebuild</a>
         <p class="note">Best for senior DS → AI Engineering lead and senior MLEs.</p>
       </div>
@@ -885,14 +889,45 @@ attacks/ → harness/ → scorers/ → report.md</pre>
     lead: "https://cal.com/jawad-ateeq-hgbvwe/lead-rebuilt",
   };
   const LINKEDIN_URL = "";  // your LinkedIn profile URL
-  // Update this as Rebuild spots sell. Keep it truthful: it is shown at the top of the page.
-  const REBUILD_SPOTS_LEFT = 4;
-  const LEAD_SPOTS_LEFT = 2;
+  // ---- Scarcity ----
+  // Monthly capacity resets automatically on the 1st (Toronto time).
+  // As spots sell, update SOLD for the current month only, e.g. { "2026-10": { rebuild: 1, lead: 0 } }. Keep it truthful.
+  const CAPACITY = { rebuild: 4, lead: 2 };
+  const SOLD = { "2026-10": { rebuild: 0, lead: 0 } };
+  const TZ = "America/Toronto";
 
-  const monthName = new Date().toLocaleString("en-CA", { month: "long" });
-  document.querySelectorAll(".spots-n").forEach(e => e.textContent = REBUILD_SPOTS_LEFT);
-  document.querySelectorAll(".spots-l").forEach(e => e.textContent = LEAD_SPOTS_LEFT);
+  // Current Toronto year/month, and the instant the next month starts in Toronto
+  function torontoParts(d) {
+    const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" }).formatToParts(d).map(x => [x.type, x.value]));
+    return { y: +p.year, m: +p.month, d: +p.day, h: +p.hour, mi: +p.minute, s: +p.second };
+  }
+  function nextMonthStart(now) {
+    const t = torontoParts(now);
+    const offsetMs = Date.UTC(t.y, t.m - 1, t.d, t.h, t.mi, t.s) - Math.floor(now.getTime() / 1000) * 1000; // Toronto minus UTC
+    const ny = t.m === 12 ? t.y + 1 : t.y, nm = t.m === 12 ? 1 : t.m + 1;
+    return new Date(Date.UTC(ny, nm - 1, 1, 0, 0, 0) - offsetMs);
+  }
+  const nowT = torontoParts(new Date()), key = `${nowT.y}-${String(nowT.m).padStart(2, "0")}`;
+  const sold = SOLD[key] || { rebuild: 0, lead: 0 };
+  const left = { rebuild: Math.max(0, CAPACITY.rebuild - sold.rebuild), lead: Math.max(0, CAPACITY.lead - sold.lead) };
+  const monthName = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, month: "long" }).format(new Date());
+  document.querySelectorAll(".spots-n").forEach(e => e.textContent = left.rebuild);
+  document.querySelectorAll(".spots-l").forEach(e => e.textContent = left.lead);
   document.querySelectorAll(".spots-m").forEach(e => e.textContent = monthName);
+
+  // Live countdown to the monthly reset
+  const pad = n => String(n).padStart(2, "0");
+  function tick() {
+    let ms = Math.max(0, nextMonthStart(new Date()) - Date.now());
+    const d = Math.floor(ms / 864e5); ms -= d * 864e5;
+    const h = Math.floor(ms / 36e5); ms -= h * 36e5;
+    const m = Math.floor(ms / 6e4); ms -= m * 6e4;
+    const sec = Math.floor(ms / 1e3);
+    const txt = `${d}d ${pad(h)}:${pad(m)}:${pad(sec)}`;
+    document.querySelectorAll(".countdown").forEach(e => e.textContent = txt);
+  }
+  tick(); setInterval(tick, 1000);
 
   document.querySelectorAll("a.book[data-tier]").forEach(a => {
     const url = BOOKING_URLS[a.dataset.tier];
