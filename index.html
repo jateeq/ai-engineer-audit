@@ -199,30 +199,6 @@
   .spots-tag { display: inline-flex; align-items: center; gap: 2px; margin: 0 0 12px; padding: 6px 12px; border-radius: 99px; background: #b42318; color: #fff;
     font-size: 14px; font-weight: 700; align-self: flex-start; }
   .closes { margin: -4px 0 12px; font-size: 13px; color: var(--bad); font-variant-numeric: tabular-nums; }
-  .flipclock { display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
-  .flipclock.sm { justify-content: flex-start; gap: 7px; margin: 2px 0 14px; color: var(--bad); }
-  .flipclock.sm .fc-lbl { font-size: 12.5px; flex-basis: 100%; margin: 0 0 2px; }
-  .flipclock.sm .flip { width: 19px; height: 26px; font-size: 17px; line-height: 26px; perspective: 120px; }
-  .flipclock.sm .flip > span > b { height: 26px; } .flipclock.sm .flip .b > b, .flipclock.sm .flip .fb > b { top: -13px; }
-  .flipclock.sm .fc-digits { gap: 2px; } .flipclock.sm .fc-name { font-size: 8.5px; color: var(--muted); }
-  .fc-lbl { font-size: 13px; font-weight: 600; opacity: .9; align-self: center; margin-right: 2px; }
-  .fc-unit { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-  .fc-digits { display: flex; gap: 3px; }
-  .fc-name { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
-  .flip { position: relative; display: inline-block; width: 26px; height: 36px; perspective: 160px; font: 700 24px/36px var(--mono); color: #fff; }
-  .flip > span { position: absolute; left: 0; right: 0; height: 50%; overflow: hidden; background: #1c1b19; backface-visibility: hidden; }
-  .flip > span > b { position: absolute; left: 0; right: 0; height: 36px; text-align: center; font-weight: 700; }
-  .flip .t, .flip .ft { top: 0; border-radius: 5px 5px 0 0; }
-  .flip .b, .flip .fb { bottom: 0; border-radius: 0 0 5px 5px; }
-  .flip .b > b, .flip .fb > b { top: -18px; }
-  .flip::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0,0,0,.55); z-index: 3; }
-  .flip .ft { z-index: 2; transform-origin: bottom; animation: fcTop .28s ease-in forwards; }
-  .flip .fb { z-index: 2; transform-origin: top; transform: rotateX(90deg); animation: fcBot .28s .28s ease-out forwards; }
-  @keyframes fcTop { to { transform: rotateX(-90deg); } }
-  @keyframes fcBot { to { transform: rotateX(0deg); } }
-  @media (prefers-reduced-motion: reduce) { .flip .ft, .flip .fb { animation: none; display: none; } }
-  @media (max-width: 520px) { .flip { width: 21px; height: 30px; font-size: 19px; line-height: 30px; } .flip > span > b { height: 30px; } .flip .b > b, .flip .fb > b { top: -15px; } }
-  .spotsbar .countdown { font-variant-numeric: tabular-nums; }
   .spots-tag .pulse { background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,.7); animation: pulse 2s infinite; }
   .roi-pt { margin-top: 10px; padding: 6px 10px; border-radius: 8px; background: var(--good-bg); color: var(--good); font-weight: 700; font-size: 14px; align-self: flex-start; }
   .badge { font: 700 12px var(--sans); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
@@ -323,24 +299,13 @@
   .spotsbar .launch-only { margin-bottom: 4px; }
   /* Tier cards: one shared row grid (subgrid), so the same part of every card sits on the same line */
   .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 20px; align-items: stretch; }
-  .tiers .tier { display: grid; grid-row: span 9; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+  .tiers .tier { display: grid; grid-row: span 8; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
   .tiers .tier > * { margin: 0; min-width: 0; }
   .tiers .t-head h3 { margin: 2px 0 0; }
   .tiers .price { margin: 10px 0 0; }
   .tiers .price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
   .tiers .price s { margin-left: 0; }
   .tiers .price .launch-tag { display: inline-block; margin: 0; align-self: center; letter-spacing: 0; }
-  .tiers .t-clock .flipclock.sm { margin: 10px 0 0; flex-wrap: nowrap; align-items: center; }
-  .tiers .t-clock .flipclock.sm .fc-lbl { flex-basis: auto; margin: 0 4px 0 0; white-space: nowrap; }
-  .tiers .t-clock .fc-name { display: none; }
-  .tiers .t-clock .flip { width: 16px; height: 22px; font-size: 14px; line-height: 22px; }
-  .tiers .t-clock .flip > span > b { height: 22px; } .tiers .t-clock .flip .b > b, .tiers .t-clock .flip .fb > b { top: -11px; }
-  .tiers .t-clock .flipclock.sm { gap: 9px; }
-  /* discount countdown: same red family as the "15% off" tag */
-  .tiers .t-clock .flip { color: #fff; font-weight: 700; }
-  .tiers .t-clock .flip > span { background: #d92d20; }
-  .tiers .t-clock .flip::after { background: rgba(255,255,255,.18); height: 1px; }
-  .tiers .t-clock .fc-lbl { color: #b42318; }
   .tiers .price { font-size: 34px; }
   .tiers .t-meta { margin-top: 6px; }
   .tiers .roi-pt { display: inline-block; margin-top: 12px; }
@@ -437,7 +402,6 @@
 <div class="spotsbar"><div class="wrap">
   <div class="launch-only" hidden><b>Interview Ready is 15% off until Sunday, Oct 18 at 11:59 PM ET.</b> After that, the regular price applies.</div>
   <div><span class="pulse"></span><b>Only <span class="spots-n">9</span> Interview Ready and <span class="spots-l">2</span> Full Interview Prep spots left for <span class="spots-m">this month</span></b> · <a href="#offer">Claim yours</a></div>
-  <div class="flipclock" id="flipclock" role="timer" aria-label="Time until spots close"><span class="fc-lbl">Closes in</span></div>
 </div></div>
 
 <header class="hero">
@@ -560,7 +524,6 @@
       <div class="card tier">
         <div class="t-head"><div class="badge">&nbsp;</div><h3>Live Audit</h3></div>
         <div class="price" data-price="audit">$79</div>
-        <div class="t-clock"></div>
         <div class="note t-meta">CAD · 1 call · 20 min</div>
         <div><a class="roi-pt" href="#pay-note">≈ 1 hour of pay at a $140k role<sup>*</sup></a></div>
         <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="off">Behavioral mock · 45 min</li><li class="off">Coding mock · 45 min</li><li class="off">System design mock · 45 min</li></ul><p class="t-extra">Top fixes in writing · 7 days of follow-up questions</p></div>
@@ -571,7 +534,6 @@
       <div class="card tier featured">
         <div class="t-head"><div class="badge">Recommended</div><h3>Interview Ready</h3></div>
         <div class="price" data-price="ready">$199</div>
-        <div class="t-clock"><div class="flipclock sm" role="timer" aria-label="Time until the offer closes"><span class="fc-lbl">Closes in</span></div></div>
         <div class="note t-meta">CAD · 2 calls · 65 min</div>
         <div><a class="roi-pt" href="#pay-note">≈ 3 hours of pay at a $140k role<sup>*</sup></a></div>
         <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="on plus">Behavioral mock · 45 min</li><li class="off">Coding mock · 45 min</li><li class="off">System design mock · 45 min</li></ul><p class="t-extra">Written feedback on each · 30 days of follow-up questions</p></div>
@@ -582,7 +544,6 @@
       <div class="card tier">
         <div class="t-head"><div class="badge">&nbsp;</div><h3>Full Interview Prep</h3></div>
         <div class="price" data-price="full">$599</div>
-        <div class="t-clock"></div>
         <div class="note t-meta">CAD · 4 calls · 2 h 35 min</div>
         <div><a class="roi-pt" href="#pay-note">≈ 1 day of pay at a $140k role<sup>*</sup></a></div>
         <div class="t-inc"><ul class="incl"><li class="on">Live Audit · 20 min</li><li class="on plus">Behavioral mock · 45 min</li><li class="on plus">Coding mock · 45 min</li><li class="on plus">System design mock · 45 min</li></ul><p class="t-extra">Written feedback on each, a prep plan for your loop · 30 days of follow-up questions</p></div>
@@ -673,17 +634,11 @@
   const SOLD = { "2026-10": { ready: 0, full: 0 } };
   const TZ = "America/Toronto";
 
-  // Current Toronto year/month, and the instant the next month starts in Toronto
+  // Current Toronto year/month
   function torontoParts(d) {
     const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit",
       hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" }).formatToParts(d).map(x => [x.type, x.value]));
     return { y: +p.year, m: +p.month, d: +p.day, h: +p.hour, mi: +p.minute, s: +p.second };
-  }
-  function nextMonthStart(now) {
-    const t = torontoParts(now);
-    const offsetMs = Date.UTC(t.y, t.m - 1, t.d, t.h, t.mi, t.s) - Math.floor(now.getTime() / 1000) * 1000; // Toronto minus UTC
-    const ny = t.m === 12 ? t.y + 1 : t.y, nm = t.m === 12 ? 1 : t.m + 1;
-    return new Date(Date.UTC(ny, nm - 1, 1, 0, 0, 0) - offsetMs);
   }
   const nowT = torontoParts(new Date()), key = `${nowT.y}-${String(nowT.m).padStart(2, "0")}`;
   const sold = SOLD[key] || { ready: 0, full: 0 };
@@ -692,19 +647,6 @@
   document.querySelectorAll(".spots-n").forEach(e => e.textContent = left.ready);
   document.querySelectorAll(".spots-l").forEach(e => e.textContent = left.full);
   document.querySelectorAll(".spots-m").forEach(e => e.textContent = monthName);
-
-  // Live countdown to the monthly reset
-  const pad = n => String(n).padStart(2, "0");
-  function tick() {
-    let ms = Math.max(0, (launchOn() ? LAUNCH.ends : nextMonthStart(new Date())) - Date.now());
-    const d = Math.floor(ms / 864e5); ms -= d * 864e5;
-    const h = Math.floor(ms / 36e5); ms -= h * 36e5;
-    const m = Math.floor(ms / 6e4); ms -= m * 6e4;
-    const sec = Math.floor(ms / 1e3);
-    const txt = `${d}d ${pad(h)}:${pad(m)}:${pad(sec)}`;
-    document.querySelectorAll(".countdown").forEach(e => e.textContent = txt);
-  }
-  tick(); setInterval(tick, 1000);
 
   const bookUrl = tier => (launchOn() && LAUNCH.urls[tier]) || BOOKING_URLS[tier];
   document.querySelectorAll("a.book[data-tier]").forEach(a => {
@@ -721,9 +663,6 @@
     });
     document.querySelectorAll(".launch-only").forEach(el => el.hidden = !on);
   }
-  document.querySelectorAll(".flipclock .fc-lbl").forEach(l => { l.dataset.reg = l.textContent; });
-  const relabel = () => document.querySelectorAll(".flipclock .fc-lbl").forEach(l => l.textContent = launchOn() ? (l.closest(".t-clock") ? "Ends Oct 18 ·" : "Discount ends in") : l.dataset.reg);
-  relabel(); setInterval(relabel, 1000);
   renderLaunch(); setInterval(() => { if (!launchOn() && document.querySelector(".launch-tag")) renderLaunch(); }, 1000);
   {
     const li = document.getElementById("li");
@@ -862,39 +801,6 @@
     a.addEventListener("click", () => { try { navigator.clipboard.writeText(location.origin + location.pathname + "#" + h.id); } catch (_) {} });
     h.prepend(a);
   });
-
-  // ---- Flip-clock countdown (split-flap) ----
-  (function () {
-    const hosts = document.querySelectorAll(".flipclock"); if (!hosts.length) return;
-    const units = [["d", "Days"], ["h", "Hrs"], ["m", "Min"], ["s", "Sec"]], clocks = [];
-    hosts.forEach(host => { const digits = {}; clocks.push(digits);
-    units.forEach(([k, name]) => {
-      const u = document.createElement("div"); u.className = "fc-unit";
-      u.innerHTML = `<div class="fc-digits"></div><div class="fc-name">${name}</div>`;
-      digits[k] = [0, 1].map(() => { const f = document.createElement("span"); f.className = "flip";
-        f.innerHTML = '<span class="t"><b>0</b></span><span class="b"><b>0</b></span>'; f.dataset.v = "0"; u.firstChild.appendChild(f); return f; });
-      host.appendChild(u);
-    }); });
-    function set(f, v) {
-      const old = f.dataset.v; if (old === v) return; f.dataset.v = v;
-      f.querySelectorAll(".ft,.fb").forEach(e => e.remove());
-      f.querySelector(".t b").textContent = v;
-      const ft = document.createElement("span"); ft.className = "ft"; ft.innerHTML = `<b>${old}</b>`;
-      const fb = document.createElement("span"); fb.className = "fb"; fb.innerHTML = `<b>${v}</b>`;
-      f.append(ft, fb);
-      setTimeout(() => { f.querySelector(".b b").textContent = v; ft.remove(); fb.remove(); }, 600);
-    }
-    function render() {
-      let ms = Math.max(0, (launchOn() ? LAUNCH.ends : nextMonthStart(new Date())) - Date.now());
-      const d = Math.floor(ms / 864e5); ms -= d * 864e5;
-      const h = Math.floor(ms / 36e5); ms -= h * 36e5;
-      const m = Math.floor(ms / 6e4); ms -= m * 6e4;
-      const sec = Math.floor(ms / 1e3);
-      clocks.forEach(digits => Object.entries({ d, h, m, s: sec }).forEach(([k, v]) => { const t = String(Math.min(v, 99)).padStart(2, "0"); digits[k].forEach((f, i) => set(f, t[i])); }));
-      clocks.forEach(digits => { digits.d[0].closest(".fc-unit").style.display = d === 0 ? "none" : ""; });  // under a day: drop the empty DAYS tile
-    }
-    render(); setInterval(render, 1000);
-  })();
 
   // ---- Mobile: collapse long example blocks, show a sticky "See pricing" bar between hero and pricing ----
   (function () {
